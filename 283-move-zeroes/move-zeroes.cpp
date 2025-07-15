@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<int> moveZeroes(vector<int>& nums) {
+    void moveZeroes(vector<int>& nums) {
         int left = 0;
 
         for (int right = 0; right < nums.size(); right++) {
@@ -9,6 +9,6 @@ public:
                 left++;
             }
         }  
-        return nums;     
+           
     }
 };
