@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool solve(string &s, int i, int j) {
-        if (i >= j) return true;
+        if (j<=i) return true;
         if (s[i] == s[j]) {
             return solve(s, i + 1, j - 1);
         }
