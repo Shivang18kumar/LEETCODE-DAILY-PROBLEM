@@ -1,21 +1,17 @@
 class Solution {
 public:
-    const int M=1e9+7;
-    int findpower(long long a,long long b){
-        if (b==0){
-            return 1;
-        }
-        long long half = findpower(a,b/2);
-        long long result = (half*half) % M;
-
-        if (b%2==1){
-            return (a*result)%M;
-
-        }
-        return result;
+    static const long long MOD = 1e9 + 7;
+    long long power(int base,long long exp){
+        if(exp==0) return 1;
+        long long half= power(base,exp/2)%MOD;
+        long long res = (half*half)%MOD;
+        if(exp%2==1) return (res*base)%MOD;
+        else return res;
     }
+
     int countGoodNumbers(long long n) {
-        return (long long)findpower(5,(n+1)/2)* findpower(4,n/2)%M;
-        
+        long long evenp = (n+1)/2;
+        long long oddp = (n/2);
+        return (power(5,evenp)*power(4,oddp))%MOD;
     }
 };
