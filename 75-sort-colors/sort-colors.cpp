@@ -1,17 +1,12 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        unordered_map<int,int> count={{0,0}, {1,0}, {2,0}};
-
-        for(auto num:nums){
-            count[num]++;
-        }
-        int idx=0;
-        for(int color=0;color<3;color++){
-            int freq= count[color];
-            for(int j=0;j<freq;j++){
-                nums[idx++]=color;
-            }
+        int n = nums.size();
+        int l=0,m=0,h=n-1;
+        while(m<=h){
+            if(nums[m]==0) swap(nums[m++],nums[l++]);
+            else if(nums[m]==1) m++;
+            else swap(nums[m],nums[h--]);
         }
         
     }
