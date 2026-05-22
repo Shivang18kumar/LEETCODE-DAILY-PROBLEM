@@ -4,7 +4,8 @@ public:
         sort(strs.begin(),strs.end());
         string first = strs.front();
         string second = strs.back();
-        string result;
+
+        string result="";
 
         for(int i=0;i<first.length();i++){
             if(first[i]!=second[i]) break;
