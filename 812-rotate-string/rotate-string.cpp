@@ -1,5 +1,6 @@
 class Solution {
 public:
+//this is not the opm=timized approac(its optimized in space with o(1) check other submision for time optimized)
     bool check (string &s, string &goal,int shift){
         int n=s.size();
         for(int i=0;i<n;i++){
