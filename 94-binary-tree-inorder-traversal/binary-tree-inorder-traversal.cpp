@@ -14,12 +14,15 @@ public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> ans;
         if(root==NULL) return ans;
-        vector<int> leftpart = inorderTraversal(root->left);
-        ans.insert(ans.end(), leftpart.begin(), leftpart.end());
-        ans.push_back(root->val);
-        vector<int> rightpart = inorderTraversal(root->right);
-        ans.insert(ans.end(), rightpart.begin(), rightpart.end());
+        
+       vector<int>leftpart= inorderTraversal(root->left);
+       ans.insert(ans.end(),leftpart.begin(),leftpart.end());
 
-        return ans;
+       ans.push_back(root->val);
+
+       vector<int> rightpart= inorderTraversal(root->right);
+       ans.insert(ans.end(),rightpart.begin(),rightpart.end());
+
+       return ans;
     }
 };
