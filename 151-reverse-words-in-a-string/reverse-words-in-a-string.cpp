@@ -1,49 +1,19 @@
 class Solution {
 public:
-
-     void reversepart(string &s,int l,int r){
-        while(l<r){
-            swap(s[l],s[r]);
-            l++;
-            r--;
-        } 
-     }
-
     string reverseWords(string s) {
-        int n = s.size();
-        reversepart(s,0,n-1);
-
-        int start=0;
-        int end=0;
-        while(start<n){
-            while(start<n && s[start]==' '){
-                start++;
-            }
-            if(start>=n) break;
-
-            end=start;
-            while(end<n && s[end]!=' ') end++;
-
-            reversepart(s,start,end-1);
-
-            start=end;
+        int i=s.size()-1;
+        string ans;
+        while(i>=0){
+            while(i>=0 && s[i]==' ') i--;
+            if(i<0) break;
+            int j=i;
+            while(j>=0 && s[j]!=' ') j--;
+            ans+=s.substr(j+1,i-j);
+            ans+=' ';
+            i=j;
         }
-
-        string ans="";
-        int i =0;
-        while(i<n){
-            while(i<n && s[i]==' ') i++;
-
-            while(i<n && s[i]!=' '){
-                ans+=s[i];
-                i++;
-            }
-            while(i<n && s[i]==' ') i++;
-
-            if(i<n){
-                ans+=' ';
-            }
-        }
+        if(!ans.empty()) ans.pop_back();
         return ans;
+        
     }
 };
