@@ -5,17 +5,15 @@ public:
             {'I',1}, {'V',5}, {'X',10}, {'L',50},
             {'C',100}, {'D',500}, {'M',1000}
         };
-
-        int result = 0;
-        for (int i = 0; i < s.length(); ++i) {
+        int result=0;
+        int next;
+        int n=s.size();
+        for(int i=0;i<n;i++){
             int curr = roman[s[i]];
-            int next = (i + 1 < s.length()) ? roman[s[i + 1]] : 0;
-
-            if (curr < next) {
-                result -= curr;
-            } else {
-                result += curr;
-            }
+            if(i<n-1)  next=roman[s[i+1]];
+            else   next=0;
+            if(curr<next) result-=curr;
+            else result+=curr;
         }
         return result;
     }
