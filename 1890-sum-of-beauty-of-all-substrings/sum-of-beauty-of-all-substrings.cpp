@@ -1,23 +1,23 @@
 class Solution {
 public:
     int beautySum(string s) {
-        int sum=0;
-        int n=s.size();
-        for(int i=0;i<n;i++){
-            int freq[26] = {0};
-            for(int j=i;j<n;j++){
+        int ans=0;
+        for(int i=0;i<s.size();i++){
+            int freq[26]={0};
+            for(int j=i;j<s.size();j++){
                 freq[s[j]-'a']++;
                 int maxi=INT_MIN;
                 int mini=INT_MAX;
-                for(auto f:freq){
-                    if(f>0) {
-                        maxi=max(maxi,f);
-                        mini=min(mini,f);
+                for(auto it :freq){
+                    if(it>0){
+                        maxi=max(maxi,it);
+                        mini= min (mini,it);
                     }
                 }
-                sum+=(maxi-mini);
+                ans+=(maxi-mini);
             }
+            
         }
-        return sum;
+        return ans;
     }
 };
