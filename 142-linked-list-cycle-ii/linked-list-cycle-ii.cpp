@@ -20,7 +20,7 @@ public:
                 slow=slow->next;
                 entry = entry->next;
                }
-               return entry;
+               return slow;
             }
         }
         return NULL;
