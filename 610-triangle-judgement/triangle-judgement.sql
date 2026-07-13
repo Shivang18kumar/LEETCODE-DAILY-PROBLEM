@@ -7,4 +7,4 @@ select x,y,z,
    then 'Yes'
    else 'No'
    end as triangle
-   from triangle
+   from triangle;
