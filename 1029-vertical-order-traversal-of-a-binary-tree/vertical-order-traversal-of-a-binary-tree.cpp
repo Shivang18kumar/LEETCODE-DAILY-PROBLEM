@@ -13,7 +13,7 @@ class Solution {
 public:
     vector<vector<int>> verticalTraversal(TreeNode* root) {
         vector<vector<int>> ans;
-        if (root==NULL) return ans;
+        if(root==NULL) return ans;
         queue<pair<TreeNode*,pair<int,int>>> todo;
         map<int,map<int,multiset<int>>> nodes;
         todo.push({root,{0,0}});
@@ -22,19 +22,28 @@ public:
             todo.pop();
             TreeNode* node=p.first;
             int x=p.second.first;
-            int y = p.second.second;
+            int y=p.second.second;
             nodes[x][y].insert(node->val);
-            if(node->left!=NULL) todo.push({node->left,{x-1,y+1}});
-            if(node->right!=NULL) todo.push({node->right,{x+1,y+1}});
+
+            if(node->left) todo.push({node->left,{x-1,y+1}});
+            if(node->right) todo.push({node->right,{x+1,y+1}});
         }
-            for(auto p:nodes){
-                vector<int> col;
-                for(auto q:p.second){
-                    col.insert(col.end(),q.second.begin(),q.second.end());
-                }
-                ans.push_back(col);
+          for (auto p : nodes) {
+
+            vector<int> col;
+
+            // Traverse all levels in this column
+            for (auto q : p.second) {
+
+                // Append every value from multiset
+                col.insert(col.end(),
+                           q.second.begin(),
+                           q.second.end());
             }
+
+            // Store one complete vertical column
+            ans.push_back(col);
+        }
         return ans;
-        
     }
 };
