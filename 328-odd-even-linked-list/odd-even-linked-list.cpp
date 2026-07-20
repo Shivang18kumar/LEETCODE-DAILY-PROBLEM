@@ -25,6 +25,6 @@ public:
             even=even->next;
         }
         odd->next=even_head;
-        return head;
+        return odd_head;
     }
 };
