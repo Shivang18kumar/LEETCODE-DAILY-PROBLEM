@@ -16,8 +16,7 @@ public:
         }
         vector<int> ans;
         for(auto x:nums1){
-            ans.push_back(mpp[x
-            ]);
+            ans.push_back(mpp[x]);
         }
         return ans;
     }
